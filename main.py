@@ -18,7 +18,7 @@ coyote_folder_id=''
 coyote_training_folder_id = '293777823612'
 woodhouse_toad_folder_id = ''
 woodhouse_toad_trianing_folder_id = '293921660447'
-# pacific_chorus_frog_training_folder_id = ''
+pacific_chorus_frog_training_folder_id = ''
 
 training_folders = client.folders.get_folder_items(bullfrog_training_folder_id)
 new_parent = client.folders.create_folder(name='train_5sec', parent = CreateFolderParent(id = bullfrog_folder_id))
@@ -29,7 +29,7 @@ for set in training_folders.entries:
     new_set = client.folders.create_folder(name = f'{set.name}_5sec', parent = CreateFolderParent(new_parent.id))
 
     for neg_pos_folders in training_set.item_collection.entries:
-        files = client.folders.get_folder_items(neg_pos_folders.id, offset=300)
+        files = client.folders.get_folder_items(neg_pos_folders.id, limit=500)
         new_neg_pos_folder = client.folders.create_folder(name=f'{neg_pos_folders.name}_5_seconds',parent= CreateFolderParent(id=new_set.id))
         print(f'Now in: {neg_pos_folders.name}')
 
