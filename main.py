@@ -29,7 +29,7 @@ for set in training_folders.entries:
     new_set = client.folders.create_folder(name = f'{set.name}_5sec', parent = CreateFolderParent(new_parent.id))
 
     for neg_pos_folders in training_set.item_collection.entries:
-        files = client.folders.get_folder_items(neg_pos_folders.id)
+        files = client.folders.get_folder_items(neg_pos_folders.id, offset=300)
         new_neg_pos_folder = client.folders.create_folder(name=f'{neg_pos_folders.name}_5_seconds',parent= CreateFolderParent(id=new_set.id))
         print(f'Now in: {neg_pos_folders.name}')
 
