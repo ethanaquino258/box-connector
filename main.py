@@ -39,6 +39,7 @@ for training_set in training_folders.entries:
                 padding_end = total_padding - padding_start
 
             new_audio = AudioSegment.silent(duration=padding_start) + audio + AudioSegment.silent(duration=padding_end)
+
             file_to_upload = new_audio.export(f'{audio_file.name}',format='wav')
             client.uploads.upload_file(
                 UploadFileAttributes(
@@ -46,3 +47,5 @@ for training_set in training_folders.entries:
                 ), 
                 file_to_upload
             )
+        
+
