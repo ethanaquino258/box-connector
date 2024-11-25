@@ -21,6 +21,7 @@ woodhouse_toad_trianing_folder_id = '293921660447'
 pacific_chorus_frog_training_folder_id = ''
 
 training_folders = client.folders.get_folder_items(bullfrog_training_folder_id)
+# training_folders_nameset = set(training_folders.entries)
 new_parent = client.folders.create_folder(name='train_5sec', parent = CreateFolderParent(id = bullfrog_folder_id))
 
 for set in training_folders.entries:
