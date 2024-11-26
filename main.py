@@ -56,7 +56,7 @@ for set in training_folders.entries:
 
         for audio_file in files.entries:
 
-            fivesec_audio_files = client.folders.get_folder_items(new_neg_pos_folder.id)
+            fivesec_audio_files = client.folders.get_folder_items(new_neg_pos_folder.id, limit = 500)
             
             audio_file_names = {entry.name for entry in fivesec_audio_files.entries}
             if audio_file.name in audio_file_names:
